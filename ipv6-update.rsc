@@ -3,6 +3,7 @@
 # Copyright (c) 2013-2025 Christian Hesse <mail@eworm.de>
 # https://rsc.eworm.de/COPYING.md
 #
+# provides: dhcp-script
 # requires RouterOS, version=7.15
 #
 # update firewall and dns settings on IPv6 prefix change
@@ -19,10 +20,10 @@
   :global ParseKeyValueStore;
   :global ScriptLock;
 
-  :local NaAddress $"na-address";
-  :local NaValid $"na-valid";
-  :local PdPrefix $"pd-prefix";
-  :local PdValid $"pd-valid";
+  :global NaAddress;
+  :global NaValid;
+  :global PdPrefix;
+  :global PdValid;
 
   :if ([ $ScriptLock $ScriptName ] = false) do={
     :set ExitOK true;
